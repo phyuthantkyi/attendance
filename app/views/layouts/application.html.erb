@@ -12,6 +12,7 @@
       <%= link_to 'Home', user_home_path %>
       <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
       <%= link_to 'Setting', edit_user_registration_path %>
+      <%= current_user.email %>
     <% end %>
   </head>
 

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>user show page</h1>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>ID:</strong>
+  <%= @user.staff_id %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Role:</strong>
+  <%= @user.role %>
+</p>
+<%= link_to 'Back', :back %>
+<!-- include others, etc. -->
+
+<%#= link_to 'Edit Profile', edit_user_path(@user) %>
+<%#= link_to "Settings", edit_user_path %>
+  

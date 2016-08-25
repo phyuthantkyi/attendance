@@ -1,20 +1,50 @@
 class UserController < ApplicationController
   before_filter :authenticate_user!, :except => [:some_action_without_auth]
   before_filter :authorize_admin, only: :create
-  def home
-  
+  before_action :set_user, only: [:show, :edit, :update] # probably want to keep using this
+
+  # GET /users
+  # GET /users.json
+  def index
+    @users = User.all
   end
 
-  def new
+  # # GET /users/1
+  # # GET /users/1.json
+  def show
 
   end
 
+  # GET /users/1/edit
   def edit
 
   end
 
-  def home
+  # # PATCH/PUT /users/1
+  # # PATCH/PUT /users/1.json
+  def update
+    respond_to do |format|
+      if @user.update(user_params)
+        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.json { render :show, status: :ok, location: @user }
+      else
+        format.html { render :edit }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
   end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_user
+      @user = User.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def user_params
+      params.require(:user).permit(:name, :staff_id, :email, :password, :password_confirmation, :role)
+    end
+
   private
     def authorize_admin
       return unless !current_user.admin?

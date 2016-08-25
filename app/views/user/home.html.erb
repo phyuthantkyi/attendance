@@ -1,4 +1,4 @@
-<%= link_to 'Staffs' %>
+<%= link_to 'Staffs', user_index_path %>
 <%= link_to 'Attendance' %>
 <% if current_user.admin? -%>
   <%= link_to 'Register', new_user_registration_path %>

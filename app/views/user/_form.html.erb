@@ -1,0 +1,33 @@
+
+<%= form_for(@user) do |f| %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :staff_id %><br>
+    <%= f.number_field :staff_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.email_field :email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :current_password %><br>
+    <%= f.password_field :current_password %>
+  </div>
+
+  <div class="field">
+    <%= f.radio_button :role, 'leader', :checked => true %> Leader
+    <%= f.radio_button :role, 'member' %> Member
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

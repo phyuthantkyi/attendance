@@ -32,6 +32,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :position %><br />
+    <%= f.select :position, ['Android', 'Design', 'iOS', 'Rails']%>
+  </div>
+
+  <div class="field">
     <%= f.radio_button :role, 'leader', :checked => true %> Leader
     <%= f.radio_button :role, 'member' %> Member
   </div>

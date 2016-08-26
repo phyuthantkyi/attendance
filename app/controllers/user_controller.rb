@@ -1,7 +1,7 @@
 class UserController < ApplicationController
   before_filter :authenticate_user!, :except => [:some_action_without_auth]
   before_filter :authorize_admin, only: :create
-  before_action :set_user, only: [:show, :edit, :update] # probably want to keep using this
+  before_action :set_user, only: [:show, :edit, :update, :destroy] # probably want to keep using this
 
   # GET /users
   # GET /users.json
@@ -25,13 +25,18 @@ class UserController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to @user, notice: 'Staff was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def destroy
+    @user.destroy!
+    redirect_to '/user', :notice => "Staff has been deleted"
   end
 
   private
@@ -42,7 +47,7 @@ class UserController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :staff_id, :email, :password, :password_confirmation, :role)
+      params.require(:user).permit(:name, :staff_id, :email, :password, :password_confirmation, :position, :role)
     end
 
   private

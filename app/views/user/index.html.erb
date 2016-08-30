@@ -1,13 +1,13 @@
-<h1>Staffs List</h1>
+<h1 align= "center">CloudSource Myanmar Staffs List</h1>
 
-<table>
+<table style="width:100%">
   <thead>
     <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Position</th>
-      <th>Role</th>
+      <th style="width:7%">ID</th>
+      <th style="width:15%">Name</th>
+      <th style="width:20%">Email</th>
+      <th style="width:10%">Position</th>
+      <th style="width:10%">Role</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,24 +20,33 @@
         <td><%= user.email %></td>
         <td><%= user.position %></td>
         <td><%= user.role %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) if current_user.admin? %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } if current_user.admin? %></td>
+        <td><%= button_to('Edit', edit_user_path(user), :class => 'btn btn-default navbar-btn', :method => :get) if current_user.admin? %></td>
+        <td style="width:34%"><%= button_to('Delete', user, :class => 'btn btn-default navbar-btn', :method => :delete, data: { confirm: 'Are you sure?' }) if current_user.admin? %></td>
+
         <% if current_user.position == "Android" && current_user.role == "leader" %>
-          <td><%= link_to 'Edit', edit_user_path(user) if user.position == "Android" && user.role == "member" %></td>
-          <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?'} if user.position == "Android" && user.role == "member" %></td>
+
+          <td><%= button_to('Edit', edit_user_path(user), :class => 'btn btn-default navbar-btn', :method => :get ) if user.position == "Android" && user.role == "member" %></td>
+          <td style="width:34%"><%= button_to('Delete', user, :class => 'btn btn-default navbar-btn', :method => :delete, data: { confirm: 'Are you sure?' }) if user.position == "Android" && user.role == "member" %></td>
         <% end %>
+
         <% if current_user.position == "Design" && current_user.role == "leader" %>
-          <td><%= link_to 'Edit', edit_user_path(user) if user.position == "Design" && user.role == "member" %></td>
-          <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?'} if user.position == "Design" && user.role == "member" %></td>
+
+          <td><%= button_to('Edit', edit_user_path(user), :class => 'btn btn-default navbar-btn', :method => :get ) if user.position == "Design" && user.role == "member" %></td>
+          <td style="width:34%"><%= button_to('Delete', user, :class => 'btn btn-default navbar-btn', :method => :delete, data: { confirm: 'Are you sure?' }) if user.position == "Design" && user.role == "member" %></td>
         <% end %>
+
         <% if current_user.position == "iOS" && current_user.role == "leader" %>
-          <td><%= link_to 'Edit', edit_user_path(user) if user.position == "iOS" && user.role == "member" %></td>
-          <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?'} if user.position == "iOS" && user.role == "member" %></td>
+
+          <td><%= button_to('Edit', edit_user_path(user), :class => 'btn btn-default navbar-btn', :method => :get ) if user.position == "iOS" && user.role == "member" %></td>
+          <td style="width:34%"><%= button_to('Delete', user, :class => 'btn btn-default navbar-btn', :method => :delete, data: { confirm: 'Are you sure?' }) if user.position == "iOS" && user.role == "member" %></td>
         <% end %>
+
         <% if current_user.position == "Rails" && current_user.role == "leader" %>
-          <td><%= link_to 'Edit', edit_user_path(user) if user.position == "Rails" && user.role == "member" %></td>
-          <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?'} if user.position == "Rails" && user.role == "member" %></td>
+
+          <td><%= button_to('Edit', edit_user_path(user), :class => 'btn btn-default navbar-btn', :method => :get ) if user.position == "Rails" && user.role == "member" %></td>
+          <td style="width:34%"><%= button_to('Delete', user, :class => 'btn btn-default navbar-btn', :method => :delete, data: { confirm: 'Are you sure?' }) if user.position == "Rails" && user.role == "member" %></button></td>
         <% end %>
+        
       </tr>
     <% end %>
   </tbody>

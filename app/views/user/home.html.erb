@@ -1,5 +1,25 @@
-<%= link_to 'Staffs', user_index_path %>
-<%= link_to 'Attendance' %>
-<% if current_user.admin? -%>
-  <%= link_to 'Register', new_user_registration_path %>
-<% end %>
+<html lang="en">
+<table style="width:100%">
+<tr>
+<td></td>
+<td style="width:60%"><%= button_to('Staffs', user_index_path, :class => 'btn btn-default navbar-btn', :method => :get, :style => "width: 30%") %></td>
+</tr>
+</table>
+
+<table style="width:100%">
+<tr>
+<td></td>
+<td style="width:60%"><%= button_to('Attendance', user_index_path, :class => 'btn btn-default navbar-btn', :method => :get, :style => "width: 30%") %></td>
+</tr>
+</table>
+
+<table style="width:100%">
+<tr>
+<td></td>
+<td style="width:60%">
+<% if current_user.admin? %>
+  <%= button_to('Register', new_user_registration_path, :class => 'btn btn-default navbar-btn', :method => :get, :style => "width: 30%") %>
+<% end %></td>
+</tr>
+</table>
+</html> 

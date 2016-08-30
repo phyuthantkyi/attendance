@@ -1,38 +1,39 @@
-
+<div align="center", style="width:100%">
 <%= form_for(@user) do |f| %>
 
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
-
+  <br />
   <div class="field">
-    <%= f.label :staff_id %><br>
+    <%= f.label :staff_id %>
     <%= f.number_field :staff_id %>
   </div>
-
+  <br />
   <div class="field">
-    <%= f.label :email %><br>
+    <%= f.label :email %>
     <%= f.email_field :email %>
   </div>
-
+  <br />
   <div class="field">
-    <%= f.label :current_password %><br>
+    <%= f.label :current_password %>
     <%= f.password_field :current_password %>
   </div>
-
+  <br />
   <div class="field">
-    <%= f.label :position %><br />
+    <%= f.label :position %>
     <%= f.select :position, ['Android', 'Design', 'iOS', 'Rails']%>
   </div>
-
+  <br />
   <div class="field">
     <%= f.radio_button :role, 'leader', :checked => true %> Leader
     <%= f.radio_button :role, 'member' %> Member
   </div>
 
-
+  <br />
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+</div>

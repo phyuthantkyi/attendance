@@ -6,14 +6,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-    <!Banner>
-    <% if user_signed_in? %>
-      <%= link_to 'Home', user_home_path %>
-      <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
-      <%= link_to 'Setting', edit_user_registration_path %>
-      <%= current_user.email %>
-    <% end %>
+    <%= render 'layouts/header' %>
   </head>
 
   <body>

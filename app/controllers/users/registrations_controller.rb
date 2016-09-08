@@ -13,13 +13,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create
     member_params = params[:user].permit(:name, :staff_id, :email, :password, :password_confirmation, :position, :role) if params[:user]
-    @member = User.new(member_params)
-    respond_to do |format|
-      if @member.save
-        format.html { redirect_to user_home_path, notice: 'User are created'}
-      else
-        format.html　{ render :new }
-      end
-    end
+    @member = User.create(member_params)
+        redirect_to user_home_path
    end
 end
